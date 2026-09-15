@@ -5,7 +5,7 @@ const Header = () => {
     <>
     <nav className="border-6 fixed split-nav"
 style={{ width: "auto" }}>
-     <div class="nav-brand">
+     <div className="nav-brand">
     {/* <h3><a href="#"></a></h3> */}
     <h3>
         <Link to={'/'}>Books Store</Link> 

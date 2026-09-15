@@ -11,6 +11,7 @@ import {
 import Layout from './Layout.jsx';
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
+import BookDetail from './pages/BookDetail.jsx';
 
 const router = createBrowserRouter([
   {
@@ -29,6 +30,20 @@ const router = createBrowserRouter([
           return url.json()
         }
       },
+       {
+        path: "/books/:id",
+        Component: BookDetail,
+       loader: async({params})=>{
+        console.log(params)
+          const url = await fetch(`https://simple-books-api.click/books/${params.id}`)
+          if(!url.ok){
+            throw new Error(" Your Books Data Fetch Problem")
+          }
+
+          return url.json()
+        }
+      },
+
       {
         path: '/about',
         Component: About
