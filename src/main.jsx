@@ -19,7 +19,15 @@ const router = createBrowserRouter([
     children:[
       {
         index: true,
-        Component: Home
+        Component: Home,
+        loader: async()=>{
+          const url = await fetch("https://simple-books-api.click/books")
+          if(!url.ok){
+            throw new Error(" Your Books Data Fetch Problem")
+          }
+
+          return url.json()
+        }
       },
       {
         path: '/about',

@@ -1,6 +1,16 @@
+import { Link } from "react-router";
+
 const About = () => {
   return (
-    <div>About page Content</div>
+    <>
+    
+      <h1>About page Content</h1>
+    <Link to={'/'}>
+      <button> 
+        Go Home
+      </button>
+    </Link>
+    </>
   );
 };
 
