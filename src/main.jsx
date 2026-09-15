@@ -12,11 +12,15 @@ import Layout from './Layout.jsx';
 import Home from './pages/Home.jsx';
 import About from './pages/About.jsx';
 import BookDetail from './pages/BookDetail.jsx';
+import NotFound from './components/NotFound.jsx';
+import ErrorPage from './components/ErrorPage.jsx';
+import Loading from './components/Loading.jsx';
 
 const router = createBrowserRouter([
   {
     path: "/",
     Component: Layout,
+    errorElement:<ErrorPage/>,
     children:[
       {
         index: true,
@@ -28,7 +32,8 @@ const router = createBrowserRouter([
           }
 
           return url.json()
-        }
+        },
+        hydrateFallbackElement:<Loading/>
       },
        {
         path: "/books/:id",
@@ -47,6 +52,10 @@ const router = createBrowserRouter([
       {
         path: '/about',
         Component: About
+      },
+      {
+        path: '*',
+        Component: NotFound
       }
     ]
   }
